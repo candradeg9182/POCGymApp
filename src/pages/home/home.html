@@ -8,11 +8,60 @@
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+  
+  <br>
+  <br>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+  <ion-list>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+    <ion-item>
+      <ion-label stacked>Nombre</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+  
+
+    <ion-item>
+      <ion-label stacked>Apellido</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <!-- <ion-item>
+      <ion-label>Gaming</ion-label>
+      <ion-select [(ngModel)]="gaming">
+        <ion-option value="nes">Marvel</ion-option>
+        <ion-option value="n64">DC</ion-option>
+  
+      </ion-select>
+    </ion-item> -->
+  
+    
+  </ion-list>
+
+  <br>
+  <br>
+
+  <div class="row">
+    <div class="col-md-12 text-right">
+      <button ion-button color="Primary" (click)="Agregar()">Nuevo</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 text-right">
+      <button ion-button color="Primary" (click)="Actualizar()">Actualizar</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 text-right">
+      <button ion-button color="Primary" (click)="Obtener()">Obtener</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 text-right">
+      <button ion-button color="Primary" (click)="ObtenerLista()">Obtener Lista</button>
+    </div>
+  </div>
+
 </ion-content>

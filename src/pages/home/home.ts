@@ -13,6 +13,7 @@ persona:Persona = {
   nombre:"que me dice mae",
   apellido:"pura vida"
 }
+  public personas:any[] = [];
 
   constructor(public navCtrl: NavController,
               private _service:BackendService) {
@@ -49,24 +50,28 @@ persona:Persona = {
 
 
 
-    ObtenerLista(){
+     ObtenerLista(){
 
        this._service.ObtenerLista()
                      .subscribe(data=>{
-                         console.log(data)
+                       this.personas = data
+                        console.log(data)
                      });
      }
 
-     Eliminar(){
+     Eliminar(key:string){
 
-       let key:string = "-LKJn1wEdwceqPSq0l7f"
 
         this._service.delete(key)
                       .subscribe(data=>{
                         console.log(data)
+
+                        this.ObtenerLista()
+
+
                       })
 
-                    }
+            }
 
 
 }

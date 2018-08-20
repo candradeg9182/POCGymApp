@@ -4,6 +4,9 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { HttpModule } from "@angular/http";
 
+
+import { KeysPipe } from '../pipes/keys.pipe';
+
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
@@ -17,7 +20,8 @@ import { BackendService } from "../app/services/backend.service";
   declarations: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    KeysPipe
   ],
   imports: [
     HttpModule,

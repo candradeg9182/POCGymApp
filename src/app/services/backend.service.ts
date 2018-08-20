@@ -9,12 +9,12 @@ export class BackendService{
 
 
     PersonURL:string = "https://heroesapp-5debd.firebaseio.com/Persona.json"
-    NodoURL:string = "https://heroesapp-5debd.firebaseio.com/Persona/"
-    
+    NodoURL:string = "https://heroesapp-5debd.firebaseio.com/Persona"
+
     constructor(private http:Http){
     }
 
-    
+
   Agregar(persona:Persona){
       let body = JSON.stringify( persona )
       let headers = new Headers({
@@ -35,7 +35,7 @@ export class BackendService{
         let headers = new Headers({
             'Content-Type':'application/json'
         });
-  
+
         let url = `${ this.NodoURL }/${ key }.json`;
 
         return this.http.put( url, body, {headers} )
@@ -44,39 +44,58 @@ export class BackendService{
                   console.log("Actualizar return")
                   return res.json()
               })
-  
+
       }
 
       Obtener(key:string){
 
-        
-  
+
+
         let url = `${ this.NodoURL }/${ key }.json`;
 
         console.log(url + " This is the url consulted")
 
         return this.http.get( url )
-                        .map(  res=>res.json() 
-                           
+                        .map(  res=>res.json()
+
                         );
-  
+
       }
 
 
       ObtenerLista(){
         let resultado:string;
-        
+
         return this.http.get( this.PersonURL )
                         .map(  res=>{
                             resultado = res.json()
                             resultado = JSON.parse(resultado);
-                            
+
                             console.log(resultado)
                             //console.log(resultado["-LKGFjeT7R-lMGtxK9Dp"])
                         }
-                           
+
                         );
-  
+
+      }
+
+      delete(key:string){
+
+        let resultado:string;
+        let url = `${ this.NodoURL }/${ key }.json`;
+
+        console.log(url)
+        return this.http.delete(url)
+                        .map(  res=>{
+                            resultado = res.json()
+                            resultado = JSON.parse(resultado);
+
+                            console.log(resultado)
+                            //console.log(resultado["-LKGFjeT7R-lMGtxK9Dp"])
+                        }
+
+                        );
+
       }
 
 

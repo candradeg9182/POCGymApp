@@ -19,7 +19,7 @@ persona:Persona = {
 
               }
 
-      
+
   Agregar(){
       console.log(this.persona)
       this._service.Agregar(this.persona)
@@ -40,7 +40,7 @@ persona:Persona = {
 
     Obtener(){
       let key:string = ""
-       
+
        this._service.Obtener(key)
                      .subscribe(data=>{
                          console.log(data)
@@ -48,14 +48,25 @@ persona:Persona = {
      }
 
 
-     
+
     ObtenerLista(){
-    
+
        this._service.ObtenerLista()
                      .subscribe(data=>{
                          console.log(data)
                      });
      }
+
+     Eliminar(){
+
+       let key:string = "-LKJn1wEdwceqPSq0l7f"
+
+        this._service.delete(key)
+                      .subscribe(data=>{
+                        console.log(data)
+                      })
+
+                    }
 
 
 }

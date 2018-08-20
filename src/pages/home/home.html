@@ -8,7 +8,7 @@
 </ion-header>
 
 <ion-content padding>
-  
+
   <br>
   <br>
 
@@ -18,23 +18,24 @@
       <ion-label stacked>Nombre</ion-label>
       <ion-input type="text"></ion-input>
     </ion-item>
-  
+
 
     <ion-item>
       <ion-label stacked>Apellido</ion-label>
       <ion-input type="text"></ion-input>
     </ion-item>
 
+
     <!-- <ion-item>
       <ion-label>Gaming</ion-label>
       <ion-select [(ngModel)]="gaming">
         <ion-option value="nes">Marvel</ion-option>
         <ion-option value="n64">DC</ion-option>
-  
+
       </ion-select>
     </ion-item> -->
-  
-    
+
+
   </ion-list>
 
   <br>
@@ -61,6 +62,12 @@
   <div class="row">
     <div class="col-md-12 text-right">
       <button ion-button color="Primary" (click)="ObtenerLista()">Obtener Lista</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 text-right">
+      <button ion-button color="Primary" (click)="Eliminar()">Eliminar</button>
     </div>
   </div>
 

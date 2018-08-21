@@ -7,6 +7,10 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { ChatPage } from "../pages/chat/Chat";
 
+import { AngularFirestore } from 'angularfire2/firestore';
+
+import { Observable } from 'rxjs';
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -16,9 +20,13 @@ export class MyApp {
   rootPage: any = ChatPage;
 
   pages: Array<{title: string, component: any}>;
+  public items: Observable<any[]>;
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,
+              db:AngularFirestore) {
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
+    this.items = db.collection('items').valueChanges();
+
 
     // used for an example of ngFor and navigation
     this.pages = [

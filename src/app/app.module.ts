@@ -14,6 +14,12 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { BackendService } from "../app/services/backend.service";
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireStorageModule } from 'angularfire2/storage';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { environment } from '../environments/environment';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -25,6 +31,10 @@ import { BackendService } from "../app/services/backend.service";
     HttpModule,
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+    AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
+    AngularFireStorageModule // imports firebase/storage only needed for storage features
   ],
   bootstrap: [IonicApp],
   entryComponents: [

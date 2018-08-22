@@ -14,12 +14,65 @@
 </ion-header>
 
 
-
-
 <ion-content padding>
-  <ul>
+
+
+    <h1>Firechat</h1>
+
+
+    <ion-scroll scrollY="true" style="width: 100%; height: 80%;">
+
+      <div align="right">
+        <ion-item>
+          <ion-badge item-end>Claudio</ion-badge>
+        </ion-item>
+        <p>Este es un mensaje de chat</p>
+      </div>
+
+
+      <ion-item>
+        <ion-badge color="light">Maria</ion-badge>
+        <p> Este es un mensaje de chat </p>
+      </ion-item>
+
+      <ion-item>
+        <ion-badge color="light">Maria</ion-badge>
+        <p> Este es un mensaje de chat </p>
+      </ion-item>
+
+      <ion-item>
+        <ion-badge color="light">Maria</ion-badge>
+        <p> Este es un mensaje de chat </p>
+      </ion-item>
+
+      <ion-item>
+        <ion-badge color="light">Maria</ion-badge>
+        <p> Este es un mensaje de chat </p>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-badge color="light">Maria</ion-badge>
+        <p> Este es un mensaje de chat </p>
+      </ion-item>
+
+    </ion-scroll>
+
+  <ion-item>
+    <ion-label floating>Mensaje a enviar</ion-label>
+    <ion-input name="mensaje"
+              [(ngModel)]="mensaje"
+              (keyup.enter)="enviar_mensaje()">
+    </ion-input>
+  </ion-item>
+
+
+
+
+  <!-- <ul>
     <li class="text" *ngFor="let item of items | async">
-      {{item |  json}} 
+      {{item |  json}}
     </li>
-  </ul>
+  </ul> -->
+
 </ion-content>

@@ -17,6 +17,8 @@ import { Observable } from 'rxjs';
 })
 export class ChatPage {
 
+  mensaje:string = "";
+
   public items: Observable<any[]>;
   constructor(public navCtrl: NavController, public navParams: NavParams,
   db:AngularFirestore) {
@@ -26,6 +28,10 @@ export class ChatPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ChatPage');
+  }
+
+  enviar_mensaje(){
+    console.log(this.mensaje)
   }
 
 }

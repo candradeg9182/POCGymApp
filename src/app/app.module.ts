@@ -6,6 +6,9 @@ import { FormsModule }  from "@angular/forms";
 
 import { HttpModule } from "@angular/http";
 
+
+import { KeysPipe } from '../pipes/keys.pipe';
+
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
@@ -29,8 +32,11 @@ import { environment } from '../environments/environment';
     MyApp,
     HomePage,
     ListPage,
+
     ChatPage,
-    LoginPage
+    LoginPage,
+    KeysPipe
+
   ],
   imports: [
     HttpModule,

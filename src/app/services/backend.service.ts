@@ -64,18 +64,15 @@ export class BackendService{
 
 
       ObtenerLista(){
-        let resultado:string;
+        let url = this.PersonURL;
 
-        return this.http.get( this.PersonURL )
-                        .map(  res=>{
-                            resultado = res.json()
-                            resultado = JSON.parse(resultado);
+        console.log(url + " This is the url consulted")
 
-                            console.log(resultado)
-                            //console.log(resultado["-LKGFjeT7R-lMGtxK9Dp"])
-                        }
+        return this.http.get( url )
+                        .map(  res=>res.json()
 
                         );
+
 
       }
 

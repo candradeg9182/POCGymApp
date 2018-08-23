@@ -22,21 +22,24 @@
 
     <ion-scroll id="chatScroll" scrollY="true" style="width: 100%; height: 80%;" >
 
-      <div align="right" *ngFor="let chat of chatService.chats ">
-        <ion-item>
-          <ion-badge item-end>Claudio</ion-badge>
-        </ion-item>
-        <p>{{ chat.mensaje }}</p>
+      <!-- <div  -->
+
+
+
+      <div  *ngFor="let chat of chatService.chats"
+              [ngClass]="{ 'sender': chatService.usuario.uid == chat.uid,
+                           'receiver': chatService.usuario.uid != chat.uid
+                         }">
+
+                       {{ chat.nombre }}
+                       <p>
+                         {{ chat.mensaje }}
+                       </p>
+
       </div>
 
+      <div id="myLabel">&nbsp;</div>
 
-      <ion-item>
-        <ion-badge color="light">Melissa</ion-badge>
-        <p> Este es un mensaje de chat </p>
-      </ion-item>
-
-
-    <ion-label id="myLabel">&nbsp;</ion-label>
     </ion-scroll>
 
   <ion-item>

@@ -23,23 +23,25 @@ export class ChatService{
     constructor(private afs: AngularFirestore,
                 public afAuth: AngularFireAuth){
 
-     this.afAuth.authState.subscribe( user => {
-       console.log('Estado del usuario: ', user)
+         this.afAuth.authState.subscribe( user => {
+           console.log('Estado del usuario: ', user)
 
-     if(!user){
-       return
-     }
+         if(!user){
+           return
+         }
 
-     this.usuario.nombre = user.displayName;
-     this.usuario.uid = user.uid;
+         this.usuario.nombre = user.displayName;
+         this.usuario.uid = user.uid;
+         console.log("Este es el correo en el constructor del service: ",user.email)
 
-     } )
+         } )
 
     }
 
       login(proveedor:string) {
         this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
       }
+
       logout() {
         this.usuario = {}
         this.afAuth.auth.signOut();
@@ -49,7 +51,7 @@ export class ChatService{
 
           this.itemsCollection = this.afs.collection<Mensaje>('chats',
                                           ref=>ref.orderBy('fecha','desc')
-                                                  .limit(5));
+                                                  .limit(50));
 
           return this.itemsCollection.valueChanges()
                                      .map(  (mensajes:Mensaje[]) =>{
@@ -67,13 +69,19 @@ export class ChatService{
                     }
 
 
-// TODO falta el UID del usuario
+
       agregarMensaje(texto:string){
         let mensaje: Mensaje = {
-          nombre:'Fernando Demo',
+          nombre:this.usuario.nombre,
           mensaje: texto,
-          fecha:new Date().getTime()
+          fecha:new Date().getTime(),
+          uid: this.usuario.uid
         }
+
+        console.log("Desde el agregarMensaje, mensaje")
+        console.log(mensaje)
+        console.log("Desde el agregarMensaje, mensaje")
+        console.log(this.usuario.uid)
 
         return this.itemsCollection.add(mensaje);
 

@@ -8,7 +8,7 @@ import { ListPage } from '../pages/list/list';
 import { ChatPage } from "../pages/chat/Chat";
 import { LoginPage } from "../pages/login/login";
 
-import { ChatService } from "./services/chat.service";
+
 
 
 @Component({
@@ -17,12 +17,11 @@ import { ChatService } from "./services/chat.service";
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = LoginPage;
+  rootPage: any = ChatPage;
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,
-              public chatService:ChatService)
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen)
    {
 
     this.initializeApp();
@@ -31,7 +30,7 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-    //  { title: 'Chat', component: ChatPage },
+      { title: 'Chat', component: ChatPage },
       { title: 'Login', component: LoginPage },
       { title: 'List', component: ListPage },
       { title: 'Home', component: HomePage },

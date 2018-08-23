@@ -23,6 +23,8 @@ export class LoginPage {
     console.log('ionViewDidLoad LoginPage');
   }
 
+  
+
   ingresar(proveedor:string){
     console.log(proveedor)
 

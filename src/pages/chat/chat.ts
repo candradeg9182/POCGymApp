@@ -27,25 +27,24 @@ export class ChatPage {
 
   constructor( public chatService: ChatService ) {
 
-    console.log("Hola desde el constructor")
-
       this.chatService.cargarMensajes().subscribe( ()=>{
-        console.log("hola del subscribe")
-        setTimeout(()=>{document.getElementById("myLabel").scrollIntoView(true)},20);
+        setTimeout(()=>{document.getElementById("myLabel").scrollIntoView(true)},200);
 
       });
 
   }
 
   ionViewDidEnter(){
-    console.log("Hola desde el ionViewDidEnter")
+
 
   }
 
   enviar_mensaje(){
-    console.log(this.mensaje)
-    console.log("compilation test")
-    document.getElementById("myLabel").scrollIntoView(true);
+
+    console.log("Ejecucion del view")
+        setTimeout(()=>{document.getElementById("myLabel").scrollIntoView(true)},200);
+    console.log("Ejecucion del view")
+
     if(this.mensaje.length === 0){
       return;
     }

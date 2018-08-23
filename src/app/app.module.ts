@@ -15,6 +15,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { BackendService } from "../app/services/backend.service";
+import { ChatService } from "../app/services/chat.service";
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
@@ -50,6 +51,7 @@ import { environment } from '../environments/environment';
     StatusBar,
     SplashScreen,
     BackendService,
+    ChatService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

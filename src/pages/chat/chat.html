@@ -20,42 +20,23 @@
     <h1>Firechat</h1>
 
 
-    <ion-scroll scrollY="true" style="width: 100%; height: 80%;">
+    <ion-scroll id="chatScroll" scrollY="true" style="width: 100%; height: 80%;" >
 
-      <div align="right">
+      <div align="right" *ngFor="let chat of chatService.chats ">
         <ion-item>
           <ion-badge item-end>Claudio</ion-badge>
         </ion-item>
-        <p>Este es un mensaje de chat</p>
+        <p>{{ chat.mensaje }}</p>
       </div>
 
 
       <ion-item>
-        <ion-badge color="light">Maria</ion-badge>
-        <p> Este es un mensaje de chat </p>
-      </ion-item>
-
-      <ion-item>
-        <ion-badge color="light">Maria</ion-badge>
-        <p> Este es un mensaje de chat </p>
-      </ion-item>
-
-      <ion-item>
-        <ion-badge color="light">Maria</ion-badge>
-        <p> Este es un mensaje de chat </p>
-      </ion-item>
-
-      <ion-item>
-        <ion-badge color="light">Maria</ion-badge>
+        <ion-badge color="light">Melissa</ion-badge>
         <p> Este es un mensaje de chat </p>
       </ion-item>
 
 
-      <ion-item>
-        <ion-badge color="light">Maria</ion-badge>
-        <p> Este es un mensaje de chat </p>
-      </ion-item>
-
+    <ion-label id="myLabel">&nbsp;</ion-label>
     </ion-scroll>
 
   <ion-item>

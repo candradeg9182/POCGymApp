@@ -2,6 +2,9 @@ import { Injectable } from "@angular/core";
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 //import { Observable } from 'rxjs';
 import { Mensaje } from "../../app/classes/mensaje.class";
+import { AngularFireAuth } from 'angularfire2/auth';
+import { auth } from 'firebase';
+
 
 import 'rxjs/Rx'
 
@@ -10,14 +13,37 @@ import 'rxjs/Rx'
 export class ChatService{
 
     chats:Mensaje[] = []
+    public usuario:any = {};
     PersonURL:string = "https://heroesapp-5debd.firebaseio.com/Persona.json"
     NodoURL:string = "https://heroesapp-5debd.firebaseio.com/Persona"
 
     private itemsCollection: AngularFirestoreCollection<Mensaje>;
 
 
-    constructor(private afs: AngularFirestore){
+    constructor(private afs: AngularFirestore,
+                public afAuth: AngularFireAuth){
+
+     this.afAuth.authState.subscribe( user => {
+       console.log('Estado del usuario: ', user)
+
+     if(!user){
+       return
+     }
+
+     this.usuario.nombre = user.displayName;
+     this.usuario.uid = user.uid;
+
+     } )
+
     }
+
+      login(proveedor:string) {
+        this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
+      }
+      logout() {
+        this.usuario = {}
+        this.afAuth.auth.signOut();
+      }
 
     cargarMensajes(){
 

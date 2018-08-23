@@ -10,6 +10,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { ChatPage } from '../pages/chat/Chat';
+import { LoginPage } from '../pages/login/login';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -28,7 +29,8 @@ import { environment } from '../environments/environment';
     MyApp,
     HomePage,
     ListPage,
-    ChatPage
+    ChatPage,
+    LoginPage
   ],
   imports: [
     HttpModule,
@@ -45,7 +47,8 @@ import { environment } from '../environments/environment';
     MyApp,
     HomePage,
     ListPage,
-    ChatPage
+    ChatPage,
+    LoginPage
   ],
   providers: [
     StatusBar,

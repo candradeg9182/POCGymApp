@@ -31,7 +31,7 @@ export class ChatPage {
 
       this.chatService.cargarMensajes().subscribe( ()=>{
         console.log("hola del subscribe")
-
+        setTimeout(()=>{document.getElementById("myLabel").scrollIntoView(true)},20);
 
       });
 

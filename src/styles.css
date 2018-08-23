@@ -53,29 +53,3 @@
 .fadeIn {
   animation-name: fadeIn;
 }
-
-
-.receiver{
-  padding: 3%;
-  width: 90%;
-  height: 50%;
-  overflow: hidden;
-  border: 1px solid #4080FF;
-  border-radius: 20px;
-  text-align: left;
-  float: left;
-  margin:3%;
-
-}
-
-.sender{
-  padding: 5%;
-  width: 90%;
-  height: 50%;
-  overflow: hidden;
-  border: 1px solid #3AD030;
-  border-radius: 20px;
-  text-align: right;
-  float: right;
-  margin:3%;
-}

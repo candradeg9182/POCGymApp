@@ -43,7 +43,7 @@ export class ChatPage {
 
   logout(){
     this.chatService.logout()
-    this.navCtrl.push( LoginPage )
+    this.navCtrl.setRoot( LoginPage )
 
   }
 

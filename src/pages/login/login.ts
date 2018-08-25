@@ -23,7 +23,7 @@ export class LoginPage {
   ionViewDidLoad() {
     if(this.chatService.usuario.uid != null)
       {
-      this.navCtrl.push(ChatPage)
+      this.navCtrl.setRoot(ChatPage)
     }
 
   }

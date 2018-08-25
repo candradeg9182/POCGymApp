@@ -2,7 +2,10 @@ import { Injectable } from "@angular/core";
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 //import { Observable } from 'rxjs';
 import { Mensaje } from "../../app/classes/mensaje.class";
+
 import { AngularFireAuth } from 'angularfire2/auth';
+import * as firebase from 'firebase/app';
+
 import { auth } from 'firebase';
 
 
@@ -39,8 +42,20 @@ export class ChatService{
 
     }
 
+    signInWithFacebook() {
+      this.afAuth.auth
+        .signInWithPopup(new firebase.auth.FacebookAuthProvider())
+        .then(res => {
+
+          console.log(res)
+
+      });
+}
+
       login(proveedor:string) {
         this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
+
+
 
       }
 

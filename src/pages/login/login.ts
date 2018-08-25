@@ -31,13 +31,24 @@ export class LoginPage {
 
 
   ingresar(proveedor:string){
+
+
+
     if(this.chatService.usuario.uid == null)
       {
-      this.chatService.login(proveedor)
-      this.navCtrl.push(ChatPage)
-    }
 
+        if(proveedor === "facebook"){
+        this.chatService.signInWithFacebook()
+        this.navCtrl.setRoot(ChatPage)
+        }
+
+        else {
+      this.chatService.login(proveedor)
+      this.navCtrl.setRoot(ChatPage)
+    }
 
   }
 
-}
+  }//-------
+
+  }

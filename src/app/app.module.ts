@@ -12,7 +12,7 @@ import { KeysPipe } from '../pipes/keys.pipe';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
-import { ChatPage } from '../pages/chat/Chat';
+import { ChatPage } from '../pages/chat/chat';
 import { LoginPage } from '../pages/login/login';
 
 import { StatusBar } from '@ionic-native/status-bar';

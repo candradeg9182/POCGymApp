@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ChatService }  from "../../app/services/chat.service";
-import { ChatPage } from "../chat/Chat";
+import { ChatPage } from "../chat/chat";
 /**
  * Generated class for the LoginPage page.
  *

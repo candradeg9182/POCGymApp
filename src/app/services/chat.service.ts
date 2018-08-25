@@ -32,6 +32,7 @@ export class ChatService{
 
          this.usuario.nombre = user.displayName;
          this.usuario.uid = user.uid;
+
          console.log("Este es el correo en el constructor del service: ",user.email)
 
          } )
@@ -40,6 +41,7 @@ export class ChatService{
 
       login(proveedor:string) {
         this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
+
       }
 
       logout() {

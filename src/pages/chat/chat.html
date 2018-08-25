@@ -19,6 +19,9 @@
 
     <h1>Firechat</h1>
 
+    <button (click)="logout()"
+            *ngIf="chatService.usuario.uid"
+            ion-button color="danger" outline>Salir</button>
 
     <ion-scroll id="chatScroll" scrollY="true" style="width: 100%; height: 80%;" >
 

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ChatService }  from "../../app/services/chat.service";
+import { ChatPage } from "../chat/Chat";
 /**
  * Generated class for the LoginPage page.
  *
@@ -20,15 +21,23 @@ export class LoginPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
+    if(this.chatService.usuario.uid != null)
+      {
+      this.navCtrl.push(ChatPage)
+    }
+
   }
 
-  
+
 
   ingresar(proveedor:string){
-    console.log(proveedor)
+    if(this.chatService.usuario.uid == null)
+      {
+      this.chatService.login(proveedor)
+      this.navCtrl.push(ChatPage)
+    }
 
-    this.chatService.login(proveedor)
+
   }
 
 }

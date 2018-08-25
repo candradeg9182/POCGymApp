@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 import { Observable } from 'rxjs';
 import { ChatService }  from "../../app/services/chat.service";
-import {LoginPage} from "../login/login";
+import { LoginPage } from "../login/login";
 /**
  * Generated class for the ChatPage page.
  *
@@ -27,7 +27,7 @@ export class ChatPage {
   public items: Observable<any[]>;
 
   constructor( public chatService: ChatService,
-                public navCtrl:NavController) {
+               public navCtrl:NavController) {
 
       this.chatService.cargarMensajes().subscribe( ()=>{
         setTimeout(()=>{document.getElementById("myLabel").scrollIntoView(true)},200);

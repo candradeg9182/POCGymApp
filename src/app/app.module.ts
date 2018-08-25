@@ -6,6 +6,7 @@ import { FormsModule }  from "@angular/forms";
 
 import { HttpModule } from "@angular/http";
 
+import { Facebook } from '@ionic-native/facebook';
 
 import { KeysPipe } from '../pipes/keys.pipe';
 
@@ -66,7 +67,8 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
     SplashScreen,
     BackendService,
     ChatService,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Facebook
   ]
 })
 export class AppModule {}

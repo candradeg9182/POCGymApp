@@ -8,6 +8,8 @@ import * as firebase from 'firebase/app';
 
 import { auth } from 'firebase';
 
+import { Platform } from 'ionic-angular';
+import { Facebook } from '@ionic-native/facebook';
 
 import 'rxjs/Rx'
 
@@ -24,7 +26,9 @@ export class ChatService{
 
 
     constructor(private afs: AngularFirestore,
-                public afAuth: AngularFireAuth){
+                public afAuth: AngularFireAuth,
+                private fb: Facebook,
+                private platform: Platform){
 
          this.afAuth.authState.subscribe( user => {
            console.log('Estado del usuario: ', user)
@@ -43,13 +47,30 @@ export class ChatService{
     }
 
     signInWithFacebook() {
-      this.afAuth.auth
-        .signInWithPopup(new firebase.auth.FacebookAuthProvider())
-        .then(res => {
 
-          console.log(res)
+
+      if(this.platform.is('cordova')){
+        //celular
+
+        this.fb.login(['email', 'public_profile']).then(res => {
+        const facebookCredential = firebase.auth.FacebookAuthProvider.credential(res.authResponse.accessToken);
+        firebase.auth().signInWithCredential(facebookCredential)
+                       .then( user =>{
+                         console.log("Usuario de facebook: ",user)
+                       }).catch(e => console.log('Error con el login' + JSON.stringify(e)))
+      })
+
+      } else {
+      //escritorio
+      this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider())
+      .then(res => {
+
+        console.log(res)
 
       });
+    }
+
+
 }
 
       login(proveedor:string) {

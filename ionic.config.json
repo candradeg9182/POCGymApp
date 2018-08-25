@@ -1,6 +1,8 @@
 {
   "name": "POCGymApp",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular",
   "pro_id": "3c4f7d84"
 }
